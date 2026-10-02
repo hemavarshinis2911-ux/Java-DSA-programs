@@ -1,30 +1,29 @@
-import java.util.Scanner;
+class Node {
+    int data;
+    Node next;
 
-public class DeleteAtBeginning {
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+public class DeleteBeginning {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        Node head = new Node(10);
+        head.next = new Node(20);
+        head.next.next = new Node(30);
 
-        System.out.print("Enter size: ");
-        int n = sc.nextInt();
+        // Delete first node
+        head = head.next;
 
-        int[] a = new int[n];
+        // Display list
+        Node temp = head;
 
-        System.out.println("Enter elements:");
-        for (int i = 0; i < n; i++) {
-            a[i] = sc.nextInt();
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
         }
-
-        for (int i = 0; i < n - 1; i++) {
-            a[i] = a[i + 1];
-        }
-
-        System.out.println("Array after deletion:");
-
-        for (int i = 0; i < n - 1; i++) {
-            System.out.print(a[i] + " ");
-        }
-
-        sc.close();
     }
 }
